@@ -1,0 +1,312 @@
+/* =========================================================
+   KARTHIKEYAN V — Design Tokens & Base Reset
+   ========================================================= */
+:root,
+:root[data-theme="light"] {
+  --bg: #FFFFFF;
+  --bg-panel: #F5F8FD;
+  --bg-panel-2: #EAF1FC;
+  --ink: #101828;
+  --ink-dim: #4C5A70;
+  --ink-faint: #8592A8;
+  --line: rgba(16, 24, 40, 0.10);
+  --line-soft: rgba(16, 24, 40, 0.06);
+  --accent: #2A63F5;
+  --accent-ink: #FFFFFF;
+  --accent-tint: rgba(42, 99, 245, 0.09);
+  --accent-line: rgba(42, 99, 245, 0.30);
+  --teal: #0E9C8E;
+  --teal-tint: rgba(14, 156, 142, 0.10);
+  --danger: #DC2626;
+
+  --nav-bg: rgba(255, 255, 255, 0.70);
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.92);
+  --shadow-soft: 0 20px 50px rgba(16, 24, 40, 0.10);
+}
+
+:root[data-theme="dark"] {
+  --bg: #0A0E17;
+  --bg-panel: #10151F;
+  --bg-panel-2: #141B27;
+  --ink: #F3F5F8;
+  --ink-dim: #9AA6B8;
+  --ink-faint: #6A7688;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-soft: rgba(255, 255, 255, 0.05);
+  --accent: #F2A93B;
+  --accent-ink: #241705;
+  --accent-tint: rgba(242, 169, 59, 0.09);
+  --accent-line: rgba(242, 169, 59, 0.32);
+  --teal: #2FBF9F;
+  --teal-tint: rgba(47, 191, 159, 0.12);
+  --danger: #F16565;
+
+  --nav-bg: rgba(10, 14, 23, 0.65);
+  --nav-bg-scrolled: rgba(10, 14, 23, 0.9);
+  --shadow-soft: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+:root {
+  --container: 1160px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --ease: cubic-bezier(.22, .7, .32, 1);
+  --nav-height: 76px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Clears the fixed navbar on any native anchor jump */
+  scroll-padding-top: var(--nav-height);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body,
+.site-nav, .mobile-menu, .about-frame, .about-badge, .skill-card,
+.connect-info-card, .contact-form, .field input, .field textarea,
+.company-logo, .brand-mark, .pill, .site-footer {
+  transition: background-color .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; margin: 0; padding: 0; }
+button { font-family: inherit; cursor: pointer; }
+h1, h2, h3, h4 { font-family: var(--font-manrope), sans-serif; font-weight: 800; line-height: 1.15; margin: 0; }
+p { margin: 0; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Offset all sections so the fixed navbar never covers headings */
+section {
+  padding: 60px 0;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* Scroll reveal helper */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Common UI */
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 1.08em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin: 0 0 10px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  transition: transform .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease), color .25s var(--ease);
+  white-space: nowrap;
+}
+.btn svg { width: 16px; height: 16px; transition: transform .25s var(--ease); }
+
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { transform: translateY(-2px); background: #ffbc56; }
+.btn-primary:hover svg { transform: translateX(3px); }
+
+.btn-ghost-inverse { background: transparent; color: var(--ink); border-color: rgba(255,255,255,0.35); }
+.btn-ghost-inverse:hover { border-color: var(--ink); background: rgba(255,255,255,0.08); transform: translateY(-2px); }
+
+.btn-outline { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+.section-head { max-width: 640px; margin: 0 0 56px; }
+.section-head h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); margin-bottom: 14px; }
+.section-head p { color: var(--ink-dim); font-size: 1.05rem; }
+
+/* Thematic section adjustments */
+.about { background: var(--bg); }
+.summary { background: var(--bg-panel); }
+.skills-section { background: var(--bg); }
+.education { background: var(--bg); }
+.connect { background: var(--bg-panel); }
+
+html[data-theme="light"] .summary {
+  background: linear-gradient(180deg, #f4f7fb 0%, #eef3f9 100%);
+}
+html[data-theme="light"] .education {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef3f9 100%);
+}
+html[data-theme="light"] .skills-section {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef3f9 100%);
+}
+html[data-theme="light"] .summary .tl-year,
+html[data-theme="light"] .education .tl-year {
+  font-weight: 600;
+}
+html[data-theme="light"] .connect {
+  background: #0b1730;
+}
+html[data-theme="light"] .connect .section-head .eyebrow {
+  color: #ffffff;
+  font-size: 1.15em;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+}
+html[data-theme="light"] .connect .section-head h2 {
+  color: #ffffff;
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  margin-top: 0;
+  margin-bottom: 0.45rem;
+}
+html[data-theme="light"] .connect .section-head > p {
+  color: #ffffff;
+  margin-top: 0;
+}
+
+/* =========================================================
+   RESPONSIVE BREAKPOINTS:
+   1. Large Desktop (1280px+)
+   2. Standard Laptop (1024px – 1279px)
+   3. Mini Laptop / Netbook (861px – 1023px)
+   4. Tablet / Tab (641px – 860px)
+   5. Mobile (<= 640px)
+   ========================================================= */
+
+/* 1. Large Desktop (1280px and above) */
+@media (min-width: 1280px) {
+  :root {
+    --container: 1160px;
+  }
+}
+
+/* 2. Standard Laptop (1024px to 1279px) */
+@media (max-width: 1279px) and (min-width: 1024px) {
+  :root {
+    --container: 980px;
+  }
+  section {
+    padding: 100px 0;
+  }
+  .container {
+    padding: 0 24px;
+  }
+}
+
+/* 3. Mini Laptop / Netbook (861px to 1023px) */
+@media (max-width: 1023px) and (min-width: 861px) {
+  :root {
+    --container: 840px;
+  }
+  section {
+    padding: 90px 0;
+  }
+  .container {
+    padding: 0 22px;
+  }
+  .section-head {
+    margin-bottom: 44px;
+  }
+}
+
+/* 4. Tablet / Tab (641px to 860px) */
+@media (max-width: 860px) and (min-width: 641px) {
+  :root {
+    --container: 100%;
+    --nav-height: 70px;
+  }
+  section {
+    padding: 75px 0;
+  }
+  .container {
+    padding: 0 20px;
+  }
+  .section-head {
+    margin-bottom: 38px;
+  }
+  .section-head h2 {
+    font-size: 2rem;
+  }
+}
+
+/* 5. Mobile (640px and below) */
+@media (max-width: 640px) {
+  :root {
+    --container: 100%;
+    --nav-height: 70px;
+  }
+  section {
+    padding: 60px 0;
+  }
+  .container {
+    padding: 0 16px;
+  }
+  .section-head {
+    margin-bottom: 32px;
+  }
+  .section-head h2 {
+    font-size: 1.75rem;
+  }
+  .btn {
+    padding: 11px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small mobile (420px and below) */
+@media (max-width: 420px) {
+  .section-head h2 {
+    font-size: 1.55rem;
+  }
+  .eyebrow {
+    font-size: 0.95em;
+  }
+}

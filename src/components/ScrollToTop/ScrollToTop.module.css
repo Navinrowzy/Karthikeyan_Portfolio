@@ -1,0 +1,32 @@
+.floatingTopArrow {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-ink);
+  border: 1px solid var(--accent-line);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), background 0.2s ease;
+  z-index: 99;
+}
+
+.floatingTopArrow.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.floatingTopArrow:hover {
+  transform: translateY(-3px);
+  background: #ffbc56;
+}

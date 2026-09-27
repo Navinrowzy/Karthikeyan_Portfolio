@@ -1,0 +1,213 @@
+.connect {
+  background: var(--bg-panel);
+}
+
+/* Full-height viewport centering only on desktop where content fits */
+@media (min-width: 861px) {
+  .connect {
+    min-height: calc(100vh - var(--nav-height, 76px));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+html[data-theme="light"] .connect {
+  background: #0b1730;
+}
+
+html[data-theme="light"] .connect :global(.section-head .eyebrow) {
+  color: #ffffff;
+  font-size: 1.15em;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+}
+
+html[data-theme="light"] .connect :global(.section-head h2) {
+  color: #ffffff;
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  margin-top: 0;
+  margin-bottom: 0.45rem;
+}
+
+html[data-theme="light"] .connect :global(.section-head > p) {
+  color: #ffffff;
+  margin-top: 0;
+}
+
+.connectGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.connectInfoCard {
+  background: var(--bg-panel-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.connectEmail {
+  font-family: var(--font-manrope);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.connectInfoCard > p {
+  color: var(--ink-dim);
+  margin-bottom: 26px;
+}
+
+.resumeDownload {
+  margin-bottom: 30px;
+}
+
+.socialList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+}
+
+.socialList a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  color: var(--ink-dim);
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: color 0.2s;
+}
+
+.socialList a:hover {
+  color: var(--accent);
+}
+
+.socialList .ic {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contactForm {
+  background: var(--bg-panel-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-dim);
+}
+
+.field input,
+.field textarea {
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  color: var(--ink);
+  font-family: var(--font-inter);
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.field .errMsg {
+  display: none;
+  font-size: 0.78rem;
+  color: var(--danger);
+}
+
+.field.hasError input,
+.field.hasError textarea {
+  border-color: var(--danger);
+}
+
+.field.hasError .errMsg {
+  display: block;
+}
+
+.btnPrimarySubmit {
+  align-self: flex-start;
+}
+
+.formStatus {
+  font-size: 0.88rem;
+  color: var(--teal);
+  min-height: 1.2em;
+}
+
+.formStatus.isError {
+  color: var(--danger);
+}
+
+/* Responsive adjustments across Mini Laptop, Tablet & Mobile */
+@media (max-width: 1024px) {
+  .connectGrid {
+    gap: 24px;
+  }
+  .connectInfoCard,
+  .contactForm {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 860px) {
+  .connectGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+  .connectInfoCard,
+  .contactForm {
+    padding: 24px;
+  }
+}

@@ -1,0 +1,184 @@
+.skillsSection {
+  background: var(--bg);
+}
+
+html[data-theme="light"] .skillsSection {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef3f9 100%);
+}
+
+.skillsShowcase {
+  margin-top: 32px;
+}
+
+html[data-theme="light"] .skillsShowcase {
+  background: radial-gradient(circle at 88% -12%, rgba(242, 200, 17, 0.14), transparent 55%),
+    radial-gradient(circle at -10% 110%, rgba(14, 165, 233, 0.1), transparent 50%),
+    linear-gradient(135deg, #ffffff 0%, #eef5fc 50%, #e3edf9 100%);
+  border-radius: 24px;
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.06);
+}
+
+.skillsHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.skillsHeading h3 {
+  font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+  margin-top: 6px;
+}
+
+.skillsKicker {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+.skillsTools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin: 1.75rem 0 2.5rem;
+}
+
+.toolChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 1.2rem 0.55rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.toolChip:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.toolIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 0.85rem;
+  font-style: italic;
+  font-family: var(--font-mono);
+}
+
+.toolName {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.toolIconPbi { background: rgba(242, 200, 17, 0.18); color: #f2c811; }
+.toolIconPython { background: rgba(55, 118, 171, 0.18); color: #4b8fd1; }
+.toolIconExcel { background: rgba(33, 115, 70, 0.18); color: #21a366; }
+.toolIconSql { background: rgba(14, 165, 233, 0.18); color: #0ea5e9; }
+.toolIconDax { background: rgba(167, 78, 187, 0.18); color: #c165d6; }
+.toolIconPq { background: rgba(20, 184, 166, 0.18); color: #2dd4bf; }
+.toolIconFlow { background: rgba(91, 95, 199, 0.18); color: #8689e0; }
+
+html[data-theme="light"] .toolChip {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+}
+
+html[data-theme="light"] .toolName {
+  color: #0f172a;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.skillCard {
+  position: relative;
+  background: var(--bg-panel-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 26px;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.skillCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-line);
+  box-shadow: var(--shadow-soft);
+}
+
+.skillNumber {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+}
+
+.skillIcon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--accent-tint);
+  color: var(--accent);
+  margin-bottom: 18px;
+  transition: transform 0.3s var(--ease);
+}
+
+.skillCard:hover .skillIcon {
+  transform: translateY(-3px) scale(1.05);
+}
+
+.skillCard h4 {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+}
+
+.skillCard p {
+  color: var(--ink-dim);
+  font-size: 0.92rem;
+  margin-bottom: 18px;
+}
+
+.skillTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skillTags span {
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--bg-panel);
+  color: var(--ink-faint);
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 900px) {
+  .skillsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .skillsGrid { grid-template-columns: 1fr; }
+}

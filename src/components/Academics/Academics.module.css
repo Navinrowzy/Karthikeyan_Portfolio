@@ -1,0 +1,115 @@
+.education {
+  background: var(--bg);
+}
+
+html[data-theme="light"] .education {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef3f9 100%);
+}
+
+.timeline {
+  position: relative;
+  padding-left: 32px;
+  border-left: 2px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+}
+
+.tlItem {
+  position: relative;
+}
+
+.tlDot {
+  position: absolute;
+  left: -39px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.tlYear {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-faint);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+html[data-theme="light"] .education .tlYear {
+  font-weight: 600;
+}
+
+.academicInfo {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.academicLogo {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.companyDetails h3 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.tlOrg strong {
+  font-size: 0.92rem;
+  color: var(--ink-dim);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.companyLocation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  margin-top: 4px;
+}
+
+.locationIcon {
+  font-size: 0.85rem;
+}
+
+.tlHighlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-tint);
+  border: 1px solid var(--accent-line);
+  padding: 7px 14px;
+  border-radius: 999px;
+}
+
+@media (max-width: 600px) {
+  .timeline {
+    padding-left: 24px;
+  }
+  .tlDot {
+    left: -31px;
+  }
+}

@@ -1,0 +1,129 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 !important; /* Prevents inheriting 110px padding from section */
+}
+
+.heroMedia {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.62;
+  background: linear-gradient(
+      180deg,
+      rgba(6, 9, 15, 0.55) 0%,
+      rgba(7, 10, 17, 0.72) 55%,
+      rgba(8, 11, 18, 0.94) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(6, 9, 15, 0.75) 0%,
+      rgba(6, 9, 15, 0.25) 55%,
+      rgba(6, 9, 15, 0.1) 100%
+    );
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 640px;
+  gap: 20px;
+}
+
+.heroCopy > * {
+  opacity: 0;
+  animation: heroRise 0.8s var(--ease) forwards;
+}
+
+.heroCopy h1 {
+  animation-delay: 0.05s;
+  font-size: clamp(2.4rem, 5.2vw, 4rem);
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.heroRole {
+  animation-delay: 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  color: #ffd589;
+  padding: 7px 16px;
+  border: 1px solid rgba(255, 213, 137, 0.4);
+  border-radius: 999px;
+  background: rgba(255, 213, 137, 0.12);
+}
+
+.heroRole .dot {
+  background: #ffd589;
+}
+
+.hero .lead {
+  animation-delay: 0.35s;
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 400;
+  max-width: 560px;
+}
+
+.hero .lead span {
+  display: block;
+}
+
+.heroCta {
+  animation-delay: 0.5s;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+html[data-theme="light"] .hero .btnGhostInverse,
+html[data-theme="light"] .hero :global(.btn-ghost-inverse) {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.65);
+  background: rgba(10, 15, 25, 0.22);
+}
+
+html[data-theme="light"] .hero .btnGhostInverse:hover,
+html[data-theme="light"] .hero :global(.btn-ghost-inverse):hover {
+  color: #111827;
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .heroCopy { max-width: 100%; }
+  .heroCta { width: 100%; }
+  .heroCta :global(.btn) { flex: 1 1 auto; justify-content: center; }
+}
