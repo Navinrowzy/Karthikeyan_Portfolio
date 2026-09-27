@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import styles from "@/components/navbar/navbar.module.css";
+import styles from "@/components/Navbar/Navbar.module.css";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
